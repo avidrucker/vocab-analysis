@@ -37,11 +37,8 @@ def has_dupe_terms(df_in):
     location = df_in['Term'].duplicated()
     return df_in.loc[location].shape[0] != 0
 	
-def inspect_note(df_in, term):
-    return df_in[df_in['Term']==term]
-	
-def inspect_note_by_id(df_in, nid):
-    return df_in[df_in['nid']==nid]
+def get_rows_by_value_in_col(df_in, value, col):
+    return df_in.loc[df_in[col]==value]
 	
 # Converts a tag string to a list to a set back to a string (this removes the duplicates)
 def remove_dupes(t):
